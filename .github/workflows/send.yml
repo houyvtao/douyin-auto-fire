@@ -7,9 +7,8 @@ on:
         description: Only verify login and friends without sending
         type: boolean
         default: false
-  schedule:
-    # 01:00 UTC = 北京时间 09:00，每天自动续火花
-    - cron: "0 1 * * *"
+  # 云端真实发送会被抖音风控拦截（实测 12/12 失败），定时已停用；
+  # 每日发送改由本机 Windows 计划任务执行，workflow 仅保留手动触发备用。
 
 concurrency:
   group: douyin-daily-sender
